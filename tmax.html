@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            function calculate() {
+                let aH = document.getElementById("absorptionInput").value;
+                let eH = document.getElementById("eliminationInput").value;
+                let ka = Math.LN2/aH;
+                let ke = Math.LN2/eH;
+                let lnka = Math.log(ka);
+                let lnke = Math.log(ke);
+                let tmax_ = ((lnka-lnke)/(ka-ke));
+                document.getElementById("myResults").innerText = tmax_;
+                //formula (ln(ka)-ln(ke))/(ka-ke) OR (ln(ka/ke))/(ka-ke)
+            }
+        </script>
+    </head>
+    <body>
+        <label>Absorption half-life</label>
+        <input type="number" id="absorptionInput">
+        <label>Elimination half-life</label>
+        <input type="number" id="eliminationInput">
+        <button onclick="calculate()">Calculate Tmax</button>
+        <p id="myResults">Results show here</p>
+    </body>
+</html>
